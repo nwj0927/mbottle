@@ -1,0 +1,39 @@
+@import url('https://fonts.googleapis.com/css2?family=Changa+One:ital@0;1&display=swap');
+
+
+/* 전체 네비게이션 CSS */
+.Nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /* margin-bottom: 30px; */
+  width: 100%;
+  background-color: rgb(255, 255, 255);
+}
+
+
+/* 브랜드 이미지 스타일 */
+.Nav-Brand {
+  /* background-color: #f0f0f0; */
+  font-family: "Changa One", sans-serif;
+  font-size: 4vh;
+  padding: 1rem;
+  /* margin-left: 1rem;
+  margin-right: 10rem; */
+}
+
+
+/* 브랜드 메뉴 스타일 */
+.Nav-Menu {
+  /* background-color: #f0f0f0; */
+  list-style: none;
+  margin-right: 2rem; /* 메뉴 사이의 간격*/
+  width: 100%;
+}
+
+/* 브랜드 드롭메뉴 스타일 */
+.Nav-Dropdown {
+  /* background-color: #f0f0f0; */
+  margin-right: 2rem; 
+  width: 100%;
+}
