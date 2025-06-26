@@ -13,7 +13,7 @@ const MainPage = () => {
           Editsssssssssssss
           Editsssssssssssss
           \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n
-          \n
+          \n 
           `}
         <code>src/App.js</code> and save to reload.
       </p>
