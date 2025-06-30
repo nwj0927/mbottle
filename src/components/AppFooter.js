@@ -13,8 +13,8 @@ function AppFooter() {
     `\n` +
     `
     경기 화성시 장안면 돌서지길 132-12 (주)엠보틀
-    📱 : 031-356-2846` +
-    ` ✉️ : sales@m-bottle.com
+    연락처 : 031-356-2846` +
+    ` 이메일 : sales@m-bottle.com
     ` +
     `© ` +
     new Date().getFullYear() +

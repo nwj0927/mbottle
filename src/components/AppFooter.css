@@ -11,7 +11,7 @@
 /* Footer Menu 스타일 */
 .Footer-Menu-Left {
   /* background-color: #f0f0f0; */
-  font-size: small;
+  font-size: large;
   text-align: left;
   list-style: none;
   margin-right: 2rem; /* 메뉴 사이의 간격*/

@@ -1,12 +1,17 @@
 import "./Pages.css"
 import "bootstrap/dist/css/bootstrap.min.css"
 import logo from "../logo.svg"
+import testC from "../layout/Carousel"
+
 const MainPage = () => {
   return (
     <section className="App-section">
       <img src={logo} className="App-logo" alt="logo" />
+
       <p>
         {`
+          Editsssssssssssss
+          Editsssssssssssss
           Editsssssssssssss
           Editsssssssssssss
           Editsssssssssssss
@@ -26,6 +31,7 @@ const MainPage = () => {
       >
         Learn React
       </a>
+      <testC />
     </section>
   )
 }
