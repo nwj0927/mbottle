@@ -1,53 +1,34 @@
 import Carousel from "react-bootstrap/Carousel"
-import imgSrc from 
+import image1 from "./Carousel/1.jpg"
+import image2 from "./Carousel/2.jpg"
+import image3 from "./Carousel/3.jpg"
 
-async function getCarouselImages() {
-  const imgFile = await fs.readdir("./src/layout/Carousel")
-  return imgFile
-}
-
-async function DarkVariantExample() {
-  const ImgList = await getCarouselImages()
-
+function ControlledCarousel() {
   return (
     <Carousel data-bs-theme="dark">
       <Carousel.Item>
-        <img
-          className="d-block w-100"
-          src="holder.js/800x400?text=First slide&bg=f5f5f5"
-          alt="First slide"
-        />
+        <img src={image1} className="carousel-image" alt="CarouselImage" />
         <Carousel.Caption>
           <h5>First slide label</h5>
           <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
         </Carousel.Caption>
       </Carousel.Item>
       <Carousel.Item>
-        <img
-          className="d-block w-100"
-          src="holder.js/800x400?text=Second slide&bg=eee"
-          alt="Second slide"
-        />
+        <img src={image2} className="carousel-image" alt="CarouselImage" />
         <Carousel.Caption>
-          <h5>Second slide label</h5>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          <h5>First slide label</h5>
+          <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
         </Carousel.Caption>
       </Carousel.Item>
       <Carousel.Item>
-        <img
-          className="d-block w-100"
-          src="holder.js/800x400?text=Third slide&bg=e5e5e5"
-          alt="Third slide"
-        />
+        <img src={image3} className="carousel-image" alt="CarouselImage" />
         <Carousel.Caption>
-          <h5>Third slide label</h5>
-          <p>
-            Praesent commodo cursus magna, vel scelerisque nisl consectetur.
-          </p>
+          <h5>First slide label</h5>
+          <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
         </Carousel.Caption>
       </Carousel.Item>
     </Carousel>
   )
 }
 
-export default DarkVariantExample
+export default ControlledCarousel

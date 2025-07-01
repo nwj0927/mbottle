@@ -1,15 +1,15 @@
 import "./Pages.css"
 import "bootstrap/dist/css/bootstrap.min.css"
-import logo from "../logo.svg"
-import testC from "../layout/Carousel"
-
+// import logo from "../logo.svg"
+import Carousel from "../layout/Carousel.js"
 const MainPage = () => {
   return (
-    <section className="App-section">
-      <img src={logo} className="App-logo" alt="logo" />
-
-      <p>
-        {`
+    <div>
+      <section className="App-section">
+        <Carousel />
+        {/* <img src={logo} className="App-logo" alt="logo" /> */}
+        <p>
+          {`
           Editsssssssssssss
           Editsssssssssssss
           Editsssssssssssss
@@ -20,19 +20,19 @@ const MainPage = () => {
           \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n
           \n 
           `}
-        <code>src/App.js</code> and save to reload.
-      </p>
+          <code>src/App.js</code> and save to reload.
+        </p>
 
-      <a
-        className="App-link"
-        href="https://reactjs.org"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        Learn React
-      </a>
-      <testC />
-    </section>
+        <a
+          className="App-link"
+          href="https://reactjs.org"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Learn React
+        </a>
+      </section>
+    </div>
   )
 }
 

@@ -1,5 +1,5 @@
 import "./AppFooter.css"
-import EmailIcon from "@mui/icons-material/Email"
+// import EmailIcon from "@mui/icons-material/Email"
 import PhoneAndroidIcon from "@mui/icons-material/PhoneAndroid"
 
 function AppFooter() {
