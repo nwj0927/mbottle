@@ -15,7 +15,8 @@
 }
 
 .App-section {
-  padding-top: 10vh;
+  padding-top: 15vh;
+  padding-bottom: 5vh;
   position: relative; /* 또는 static */
   z-index: 1;
 }

@@ -39,12 +39,6 @@
   z-index: 10;
   font-size: calc(10px + 2vmin);
 }
-.App-section {
-  padding-top: 10vh;
-  position: relative; /* 또는 static */
-  z-index: 1;
-}
-
 .App-link {
   color: #61dafb;
 }

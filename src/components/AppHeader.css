@@ -1,5 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Changa+One:ital@0;1&display=swap');
-
+@import url("https://fonts.googleapis.com/css2?family=Changa+One:ital@0;1&display=swap");
 
 /* 전체 네비게이션 CSS */
 .Nav {
@@ -11,7 +10,6 @@
   background-color: rgb(255, 255, 255);
 }
 
-
 /* 브랜드 이미지 스타일 */
 .Nav-Brand {
   /* background-color: #f0f0f0; */
@@ -21,7 +19,6 @@
   /* margin-left: 1rem;
   margin-right: 10rem; */
 }
-
 
 /* 브랜드 메뉴 스타일 */
 .Nav-Menu {
@@ -34,6 +31,6 @@
 /* 브랜드 드롭메뉴 스타일 */
 .Nav-Dropdown {
   /* background-color: #f0f0f0; */
-  margin-right: 2rem; 
+  margin-right: 2rem;
   width: 100%;
 }

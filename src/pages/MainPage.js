@@ -1,12 +1,14 @@
 import "./Pages.css"
 import "bootstrap/dist/css/bootstrap.min.css"
 // import logo from "../logo.svg"
-import Carousel from "../layout/Carousel.js"
+import Carousel from "../components/Carousel.js"
+import Board from "../components/Board.js"
 const MainPage = () => {
   return (
     <div>
       <section className="App-section">
         <Carousel />
+        <Board />
         {/* <img src={logo} className="App-logo" alt="logo" /> */}
         <p>
           {`
