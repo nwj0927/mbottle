@@ -1,0 +1,22 @@
+/* Company.css */
+
+.floating-navigator {
+  position: fixed;
+  top: 100px;
+  right: 20px;
+  width: 150px;
+  background-color: #fff;
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  z-index: 9999;
+}
+
+.floating-navigator .nav-link {
+  margin-bottom: 0.5rem;
+}
+
+.floating-navigator .nav-link.active {
+  font-weight: bold;
+  color: #0d6efd; /* react-bootstrap 기본 primary 색상 */
+}

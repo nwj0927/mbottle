@@ -4,6 +4,9 @@ import { doc, getDoc, deleteDoc, updateDoc } from "firebase/firestore"
 import { db } from "../firebase"
 import { useAuth } from "../context/AuthContext"
 import { Container, Card, Button, Form, Image, Row, Col } from "react-bootstrap"
+import DeleteIcon from "@mui/icons-material/Delete"
+import ModeEditIcon from "@mui/icons-material/ModeEdit"
+import "./PostDetail.css"
 
 function PostDetail() {
   const { id } = useParams()
@@ -52,19 +55,31 @@ function PostDetail() {
   const isAuthor = user && post.uid === user.uid
 
   return (
-    <Container style={{ maxWidth: "600px", marginTop: "30px" }}>
+    <Container style={{ maxWidth: "100%" }}>
       <Card>
+        <Card.Header>{post.title}</Card.Header>
         <Card.Body>
           {/* 제목 */}
-          <Row>
-            <Col>
-              <Card.Title>{post.title}</Card.Title>
-            </Col>
-            <Col className="text-end text-muted">
-              작성자: {post.author} <br />
-              작성일: {new Date(post.createdAt).toLocaleDateString("ko-KR")}
-            </Col>
-          </Row>
+          <div className="text-end">
+            {(isAuthor || isAdmin) && (
+              <DeleteIcon
+                color="action"
+                className="delete-icon"
+                onClick={handleDelete}
+              />
+            )}
+            {(isAuthor || isAdmin) && (
+              <ModeEditIcon
+                color="action"
+                className="delete-icon"
+                onClick={handleUpdate}
+              />
+            )}
+          </div>
+          <Card.Subtitle className="mb-2 text-muted">
+            작성자: {post.author} <br />
+            작성일: {new Date(post.createdAt).toLocaleDateString("ko-KR")}
+          </Card.Subtitle>
 
           {/* 이미지 */}
           {post.imageUrl && (
@@ -120,20 +135,7 @@ function PostDetail() {
 
           {/* 하단 버튼들 */}
           <Row className="mt-4">
-            <Col>
-              <div className="d-flex gap-2">
-                {isAuthor && (
-                  <Button variant="danger" onClick={handleDelete}>
-                    삭제하기
-                  </Button>
-                )}
-                {isAuthor && (
-                  <Button variant="warning" onClick={handleUpdate}>
-                    수정하기
-                  </Button>
-                )}
-              </div>
-            </Col>
+            <Col></Col>
             <Col className="text-end">
               <Button variant="secondary" onClick={() => navigate("/board")}>
                 목록보기

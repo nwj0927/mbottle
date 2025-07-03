@@ -5,6 +5,8 @@ import Header from "../components/AppHeader"
 import Footer from "../components/AppFooter"
 import { auth, provider } from "../firebase" // provider도 임포트해야 합니다
 import { signInWithPopup, signOut } from "firebase/auth"
+import Wrapper from "../components/Wrapper"
+import ScrollToTopButton from "../components/ScrollToTopButoon"
 
 const Router = () => {
   const [user, setUser] = useState(null)
@@ -41,16 +43,17 @@ const Router = () => {
           {/* user와 로그인/로그아웃 함수 같이 넘김 */}
           <Header user={user} onLogin={handleLogin} onLogout={handleLogout} />
         </header>
-
-        <Routes>
-          <Route path="/" element={<pages.MainPage />} />
-          <Route path="/board" element={<pages.Board />} />
-          <Route path="/write" element={<pages.Write user={user} />} />
-          <Route path="/edit/:id" element={<pages.Edit />} />
-          <Route path="/post/:id" element={<pages.PostDetail />} />
-          <Route path="/gallery" element={<pages.Company />} />
-        </Routes>
-
+        <Wrapper>
+          <Routes>
+            <Route path="/" element={<pages.MainPage />} />
+            <Route path="/board" element={<pages.Board />} />
+            <Route path="/write" element={<pages.Write user={user} />} />
+            <Route path="/edit/:id" element={<pages.Edit />} />
+            <Route path="/post/:id" element={<pages.PostDetail />} />
+            <Route path="/company" element={<pages.CompanyPage />} />
+          </Routes>
+        </Wrapper>
+        <ScrollToTopButton />
         <footer className="Footer">
           <Footer />
         </footer>

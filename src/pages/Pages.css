@@ -18,6 +18,14 @@
   padding-top: 15vh;
   padding-bottom: 5vh;
   position: relative; /* 또는 static */
+  font-size: small;
+  z-index: 1;
+}
+.App-card {
+  padding-top: 15vh;
+  padding-bottom: 5vh;
+  position: relative; /* 또는 static */
+  text-align: left;
   z-index: 1;
 }
 

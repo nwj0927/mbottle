@@ -1,0 +1,14 @@
+/* DeleteIcon.css */
+.delete-icon {
+  font-size: 30px;
+  color: gray;
+  cursor: pointer;
+}
+
+.delete-icon:hover {
+  color: red;
+}
+
+.delete-icon:active {
+  color: darkred;
+}

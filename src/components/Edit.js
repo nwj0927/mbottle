@@ -60,7 +60,7 @@ function Edit() {
   }
 
   return (
-    <Container style={{ maxWidth: "600px", marginTop: "30px" }}>
+    <Container style={{ maxWidth: "100%" }}>
       <h3 className="mb-4">📝 게시글 수정</h3>
       <Form onSubmit={handleSubmit}>
         <Form.Group className="mb-3">

@@ -2,12 +2,10 @@ import React, { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
 import { collection, getDocs } from "firebase/firestore"
 import { db } from "../firebase"
-// import { useAuth } from "../context/AuthContext"
 import { Container, Table, Button, Row, Col } from "react-bootstrap"
 
 function Board() {
   const [posts, setPosts] = useState([])
-  // const { isAdmin } = useAuth()
   const navigate = useNavigate()
 
   useEffect(() => {
@@ -27,23 +25,6 @@ function Board() {
 
   return (
     <Container style={{ maxWidth: "100%" }}>
-      <Row className="align-items-center mb-3">
-        <Col>
-          <h3>📋 게시판</h3>
-        </Col>
-        <Col className="text-end">
-          {/* 
-          *** 관리자만 쓸 수 있게 할 경우
-          {isAdmin && (
-            <Button variant="primary" onClick={() => navigate("/write")}>
-              ✍️ 글쓰기
-            </Button>
-          )} */}
-          <Button variant="primary" onClick={() => navigate("/write")}>
-            ✍️ 글쓰기
-          </Button>
-        </Col>
-      </Row>
       <Table striped bordered hover>
         <thead>
           <tr>
@@ -69,6 +50,20 @@ function Board() {
           ))}
         </tbody>
       </Table>
+      <Row className="align-items-center mb-3">
+        <Col className="text-end">
+          {/* 
+          *** 관리자만 쓸 수 있게 할 경우
+          {isAdmin && (
+            <Button variant="primary" onClick={() => navigate("/write")}>
+              ✍️ 글쓰기
+            </Button>
+          )} */}
+          <Button variant="primary" onClick={() => navigate("/write")}>
+            글쓰기
+          </Button>
+        </Col>
+      </Row>
     </Container>
   )
 }

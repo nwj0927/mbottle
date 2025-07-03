@@ -8,6 +8,7 @@ import "./AppHeader.css"
 import LoginIcon from "@mui/icons-material/Login"
 import LogoutIcon from "@mui/icons-material/Logout"
 import PersonIcon from "@mui/icons-material/Person"
+
 function NavScrollExample({ user, onLogin, onLogout }) {
   return (
     <Navbar expand="lg" className="Nav" sticky="top">
@@ -23,9 +24,18 @@ function NavScrollExample({ user, onLogin, onLogout }) {
             navbarScroll={false}
           >
             <NavDropdown title="COMPANY" className="Nav-Dropdown">
-              <NavDropdown.Item href="Company">회사개요</NavDropdown.Item>
-              <NavDropdown.Item href="Philosophy">경영이념</NavDropdown.Item>
-              <NavDropdown.Item href="Company">특허 및 인증</NavDropdown.Item>
+              <NavDropdown.Item href="/company#profile">
+                회사개요
+              </NavDropdown.Item>
+              <NavDropdown.Item href="/company#history">
+                회사연혁
+              </NavDropdown.Item>
+              <NavDropdown.Item href="/company#philosophy">
+                경영이념
+              </NavDropdown.Item>
+              <NavDropdown.Item href="/company#patents">
+                특허 및 인증
+              </NavDropdown.Item>
             </NavDropdown>
 
             <NavDropdown title="PRODUCT" className="Nav-Dropdown">
@@ -40,7 +50,7 @@ function NavScrollExample({ user, onLogin, onLogout }) {
             <Nav.Link className="Nav-Menu" href="#action2">
               PRODUCT
             </Nav.Link>
-            <Nav.Link className="Nav-Menu" href="#action2">
+            <Nav.Link className="Nav-Menu" href="board">
               Q&A
             </Nav.Link>
             <Nav.Link className="Nav-Menu" href="#" disabled>

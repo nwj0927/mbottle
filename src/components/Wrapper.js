@@ -1,3 +1,6 @@
+/**
+ * 페이지 동적으로 표현해주는 모듈 'Farmer-Motion'
+ */
 import React from "react"
 import { motion } from "framer-motion"
 // motion 임포트하기!
