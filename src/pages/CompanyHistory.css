@@ -1,0 +1,21 @@
+.timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.timeline-item {
+  width: 100%;
+}
+
+.timeline-item.left .timeline-year {
+  text-align: left;
+}
+
+.timeline-item.right .timeline-year {
+  text-align: right;
+}
+
+.timeline-description {
+  flex: 1;
+}

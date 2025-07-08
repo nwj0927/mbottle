@@ -47,13 +47,13 @@ function NavScrollExample({ user, onLogin, onLogout }) {
               </NavDropdown.Item>
             </NavDropdown>
 
-            <Nav.Link className="Nav-Menu" href="#action2">
+            <Nav.Link className="Nav-Menu" href="/#action2">
               PRODUCT
             </Nav.Link>
-            <Nav.Link className="Nav-Menu" href="board">
+            <Nav.Link className="Nav-Menu" href="/board">
               Q&A
             </Nav.Link>
-            <Nav.Link className="Nav-Menu" href="#" disabled>
+            <Nav.Link className="Nav-Menu" href="/#" disabled>
               Link
             </Nav.Link>
           </Nav>

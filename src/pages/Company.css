@@ -2,21 +2,49 @@
 
 .floating-navigator {
   position: fixed;
-  top: 100px;
-  right: 20px;
-  width: 150px;
+  bottom: 2rem; /* 우측 하단 고정 */
+  right: 2rem;
+  width: 12vw;
+  max-width: 180px;
+  min-width: 100px;
+
   background-color: #fff;
   padding: 1rem;
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 0.75rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   z-index: 9999;
+
+  transition: all 0.3s ease;
+}
+
+/* 작은 화면 (모바일 대응) */
+@media (max-width: 768px) {
+  .floating-navigator {
+    bottom: 1.2rem;
+    right: 1rem;
+    width: 40vw;
+    padding: 0.8rem;
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .floating-navigator {
+    width: 60vw;
+    right: 0.5rem;
+    bottom: 0.5rem;
+    padding: 0.7rem;
+    font-size: 0.85rem;
+  }
 }
 
 .floating-navigator .nav-link {
+  margin-top: 0.5rem;
   margin-bottom: 0.5rem;
+  color: #000000; /* react-bootstrap 기본 primary 색상 */
 }
 
 .floating-navigator .nav-link.active {
   font-weight: bold;
-  color: #0d6efd; /* react-bootstrap 기본 primary 색상 */
+  color: #000000; /* react-bootstrap 기본 primary 색상 */
 }

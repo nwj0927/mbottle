@@ -8,8 +8,7 @@ import { Container, Form, Button, Spinner } from "react-bootstrap"
 function Edit() {
   const { id } = useParams()
   const navigate = useNavigate()
-  const { user, loading } = useAuth()
-
+  const { user, loading, isAdmin } = useAuth()
   const [title, setTitle] = useState("")
   const [content, setContent] = useState("")
   const [loadingPost, setLoadingPost] = useState(true)
@@ -21,7 +20,7 @@ function Edit() {
       if (docSnap.exists()) {
         const data = docSnap.data()
         // 본인 글인지 확인
-        if (data.uid !== user?.uid) {
+        if (data.uid !== user?.uid && !isAdmin) {
           alert("작성자만 수정할 수 있습니다.")
           navigate("/")
           return

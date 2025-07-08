@@ -8,7 +8,7 @@ const MainPage = () => {
     <div>
       <section className="App-section">
         <Carousel />
-        <Board />
+        {/* <Board /> */}
         {/* <img src={logo} className="App-logo" alt="logo" /> */}
         <p>
           {`

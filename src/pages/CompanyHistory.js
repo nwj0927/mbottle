@@ -2,6 +2,7 @@ import React from "react"
 import { Container, Row, Col, Card } from "react-bootstrap"
 import { motion } from "framer-motion"
 import "bootstrap/dist/css/bootstrap.min.css"
+import "./CompanyHistory.css" // 선택: 커스텀 스타일
 
 const companyHistory = [
   { year: "2020.03", description: "주식회사 엠보틀 설립" },
@@ -15,37 +16,35 @@ const companyHistory = [
   { year: "2025.01", description: "국내 1,000개 병입 시설 도입 달성" },
 ]
 
-const History = () => {
+const CompanyHistory = () => {
   return (
     <Container className="py-5">
-      <h2 className="text-center mb-5 fw-bold">회사 연혁</h2>
-      <Row className="justify-content-center">
-        <Col md={8}>
-          {companyHistory.map((item, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-            >
-              <Card className="mb-3 shadow-sm border-0">
-                <Card.Body className="d-flex">
-                  <div
-                    className="fw-bold text-primary"
-                    style={{ minWidth: "100px" }}
-                  >
-                    {item.year}
-                  </div>
-                  <div>{item.description}</div>
-                </Card.Body>
-              </Card>
-            </motion.div>
-          ))}
-        </Col>
-      </Row>
+      <h2 className="text-center fw-bold mb-5">회사 연혁</h2>
+      <div className="timeline">
+        {companyHistory.map((item, index) => (
+          <motion.div
+            key={index}
+            initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: index * 0.05 }}
+            className={`timeline-item ${index % 2 === 0 ? "left" : "right"}`}
+          >
+            <Card className="shadow-sm border-0">
+              <Card.Body className="d-flex flex-column flex-md-row align-items-md-center gap-3">
+                <div className="timeline-year text-primary fw-bold fs-4">
+                  {item.year}
+                </div>
+                <div className="timeline-description fs-5 text-muted">
+                  {item.description}
+                </div>
+              </Card.Body>
+            </Card>
+          </motion.div>
+        ))}
+      </div>
     </Container>
   )
 }
 
-export default History
+export default CompanyHistory
