@@ -19,3 +19,17 @@
 .timeline-description {
   flex: 1;
 }
+
+@media (max-width: 768px) {
+  .fs-5 {
+    font-size: 1rem !important;
+  }
+
+  .fs-4 {
+    font-size: 1.1rem !important;
+  }
+
+  .display-5 {
+    font-size: 2rem;
+  }
+}

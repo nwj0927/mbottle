@@ -1,8 +1,7 @@
-/* Company.css */
-
+/* floating navigator 스타일 */
 .floating-navigator {
   position: fixed;
-  bottom: 2rem; /* 우측 하단 고정 */
+  bottom: 2rem;
   right: 2rem;
   width: 12vw;
   max-width: 180px;
@@ -17,7 +16,7 @@
   transition: all 0.3s ease;
 }
 
-/* 작은 화면 (모바일 대응) */
+/* 모바일 대응 */
 @media (max-width: 768px) {
   .floating-navigator {
     bottom: 1.2rem;
@@ -41,10 +40,26 @@
 .floating-navigator .nav-link {
   margin-top: 0.5rem;
   margin-bottom: 0.5rem;
-  color: #000000; /* react-bootstrap 기본 primary 색상 */
+  color: #000000;
 }
 
 .floating-navigator .nav-link.active {
   font-weight: bold;
-  color: #000000; /* react-bootstrap 기본 primary 색상 */
+  color: #000000;
+}
+
+/* 각 섹션의 스크롤 마진 보정 (고정 헤더 높이 10vh) */
+#profile,
+#history,
+#philosophy {
+  scroll-margin-top: 10vh;
+}
+
+/* App-section 기본 padding 보정 (헤더 높이만큼 위 여백 확보) */
+.App-section {
+  padding-top: 10vh;
+  padding-bottom: 5vh;
+  position: relative;
+  font-size: small;
+  z-index: 1;
 }

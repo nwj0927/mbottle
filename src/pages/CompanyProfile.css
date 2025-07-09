@@ -1,0 +1,12 @@
+th,
+td {
+  vertical-align: middle !important;
+}
+
+@media (max-width: 768px) {
+  th div {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.3rem;
+  }
+}

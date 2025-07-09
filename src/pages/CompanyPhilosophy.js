@@ -1,25 +1,36 @@
 import React from "react"
 import { Container, Row, Col, Card } from "react-bootstrap"
 import { motion } from "framer-motion"
-import "bootstrap/dist/css/bootstrap.min.css"
-
+import PrecisionManufacturingIcon from "@mui/icons-material/PrecisionManufacturing"
+import AutoAwesomeIcon from "@mui/icons-material/AutoAwesome"
+import HandshakeIcon from "@mui/icons-material/Handshake"
+import EngineeringIcon from "@mui/icons-material/Engineering"
+import RecyclingIcon from "@mui/icons-material/Recycling"
 const coreValues = [
   {
     title: "정밀함",
     description: "세심한 설계와 품질관리로 완성도를 높입니다.",
+    icon: <PrecisionManufacturingIcon fontSize="inherit" color="primary" />,
   },
-  { title: "창의성", description: "감각적이고 차별화된 디자인을 개발합니다." },
+  {
+    title: "창의성",
+    description: "감각적이고 차별화된 디자인을 개발합니다.",
+    icon: <AutoAwesomeIcon fontSize="inherit" color="warning" />,
+  },
   {
     title: "신뢰",
     description: "투명한 커뮤니케이션과 약속 이행을 중시합니다.",
+    icon: <HandshakeIcon fontSize="inherit" color="success" />,
   },
   {
     title: "전문성",
     description: "금형부터 후가공까지 전공정 대응력을 보유합니다.",
+    icon: <EngineeringIcon fontSize="inherit" color="info" />,
   },
   {
     title: "지속 가능성",
     description: "환경을 생각한 소재 및 생산을 지향합니다.",
+    icon: <RecyclingIcon fontSize="inherit" color="success" />,
   },
 ]
 
@@ -83,7 +94,15 @@ const CompanyPhilosophy = () => {
               transition={{ duration: 0.5, delay: idx * 0.1 }}
             >
               <Card className="shadow-sm border-0 h-100">
-                <Card.Body>
+                <Card.Body className="d-flex flex-column align-items-start">
+                  <div
+                    style={{
+                      fontSize: "2.5rem",
+                      marginBottom: "0.5rem",
+                    }}
+                  >
+                    {value.icon}
+                  </div>
                   <h5 className="fw-bold text-dark">{value.title}</h5>
                   <p className="text-muted mb-0">{value.description}</p>
                 </Card.Body>
