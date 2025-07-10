@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
 import { collection, addDoc } from "firebase/firestore"
-import { db } from "../firebase"
-import { useAuth } from "../context/AuthContext"
+import { db } from "../../firebase"
+import { useAuth } from "../../context/AuthContext"
 import { Container, Form, Button } from "react-bootstrap"
 
-function Write() {
+function QnaWritePage() {
   const { user, loading } = useAuth()
   const navigate = useNavigate()
   const [title, setTitle] = useState("")
@@ -14,7 +14,7 @@ function Write() {
   useEffect(() => {
     if (!loading && !user) {
       alert("로그인이 필요합니다.")
-      navigate("/")
+      navigate("/qna")
     }
   }, [user, loading, navigate])
 
@@ -30,7 +30,7 @@ function Write() {
       createdAt: new Date().toISOString(),
     })
 
-    navigate("/board")
+    navigate("/qna")
   }
 
   if (loading) return <div>로딩중...</div>
@@ -70,4 +70,4 @@ function Write() {
   )
 }
 
-export default Write
+export default QnaWritePage

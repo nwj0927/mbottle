@@ -1,19 +1,19 @@
-import MainPage from "./MainPage"
-import CompanyPage from "./CompanyPage"
-import Board from "./Board"
-import Edit from "./Edit"
-import Write from "./Write"
-import PostDetail from "./PostDetail"
-import History from "./CompanyHistory"
-import Profile from "./CompanyProfile"
+import HomePage from "./home/HomePage"
+import QnaListPage from "./qna/QnaListPage"
+import QnaEditPage from "./qna/QnaEditPage"
+import QnaWritePage from "./qna/QnaWritePage"
+import QnaDetailPage from "./qna/QnaDetailPage"
+import CompanyPage from "./company/CompanyPage"
+import History from "./company/CompanyHistory"
+import Profile from "./company/CompanyProfile"
 
 export {
-  MainPage,
+  HomePage,
   CompanyPage,
-  Board,
-  Edit,
-  Write,
-  PostDetail,
+  QnaListPage,
+  QnaEditPage,
+  QnaWritePage,
+  QnaDetailPage,
   History,
   Profile,
 }

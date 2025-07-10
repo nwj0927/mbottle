@@ -1,16 +1,15 @@
 import React, { useEffect, useState } from "react"
 import { useParams, useNavigate } from "react-router-dom"
 import { doc, getDoc, deleteDoc, updateDoc } from "firebase/firestore"
-import { db } from "../firebase"
-import { useAuth } from "../context/AuthContext"
+import { db } from "../../firebase"
+import { useAuth } from "../../context/AuthContext"
 import { Container, Card, Button, Form, Image, Row, Col } from "react-bootstrap"
 import DeleteIcon from "@mui/icons-material/Delete"
 import ModeEditIcon from "@mui/icons-material/ModeEdit"
-import QuickreplyIcon from "@mui/icons-material/Quickreply"
 
-import "./PostDetail.css"
+import "./QnaDetailPage.css"
 
-function PostDetail() {
+function QnaDetailPage() {
   const { id } = useParams()
   const [post, setPost] = useState(null)
   const [reply, setReply] = useState("")
@@ -35,7 +34,7 @@ function PostDetail() {
   const handleDelete = async () => {
     if (window.confirm("정말 삭제하시겠습니까?")) {
       await deleteDoc(doc(db, "posts", id))
-      navigate("/board")
+      navigate("/qna/board")
     }
   }
 
@@ -51,7 +50,7 @@ function PostDetail() {
   }
 
   const handleUpdate = () => {
-    navigate(`/edit/${id}`)
+    navigate(`/qna/edit/${id}`)
   }
 
   if (!post) return <div>로딩 중...</div>
@@ -59,14 +58,14 @@ function PostDetail() {
   const isAuthor = user && post.uid === user.uid
 
   return (
-    <Container style={{ maxWidth: "100%" }}>
+    <Container className="qna-container">
       <Card>
-        <Card.Header>{post.title}</Card.Header>
         <Card.Body>
-          {/* 수정/삭제 아이콘 */}
-          <div className="text-end">
+          {/* 제목 + 아이콘 */}
+          <div className="qna-header-row mb-2">
+            <div className="qna-title">{post.title}</div>
             {(isAuthor || isAdmin) && (
-              <>
+              <div className="qna-icons">
                 <DeleteIcon
                   color="action"
                   className="delete-icon"
@@ -77,15 +76,17 @@ function PostDetail() {
                   className="delete-icon"
                   onClick={handleUpdate}
                 />
-              </>
+              </div>
             )}
           </div>
 
-          {/* 작성자 정보 */}
-          <Card.Subtitle className="mb-2 text-muted">
-            작성자: {post.author} <br />
-            작성일: {new Date(post.createdAt).toLocaleDateString("ko-KR")}
-          </Card.Subtitle>
+          {/* 작성자 + 날짜 */}
+          <div className="qna-meta">
+            <div>작성자: {post.author}</div>
+            <div style={{ textAlign: "right" }}>
+              작성일: {new Date(post.createdAt).toLocaleDateString("ko-KR")}
+            </div>
+          </div>
 
           {/* 이미지 */}
           {post.imageUrl && (
@@ -100,20 +101,12 @@ function PostDetail() {
           )}
 
           {/* 본문 */}
-          <Card.Text style={{ whiteSpace: "pre-line", marginTop: "20px" }}>
-            {post.content}
-          </Card.Text>
+          <Card.Text className="qna-content">{post.content}</Card.Text>
 
           {/* 관리자 답변 필드 */}
           {isAdmin && (
             <>
               <Form.Group className="mt-4">
-                <Form.Label>
-                  <QuickreplyIcon
-                    color="gray"
-                    className="quickreplyIcon-icon"
-                  />
-                </Form.Label>
                 <Form.Control
                   as="textarea"
                   rows={3}
@@ -148,9 +141,9 @@ function PostDetail() {
 
           {/* 일반 사용자용 관리자 답변 보기 */}
           {post.reply && !isAdmin && (
-            <Card className="mt-4 bg-light">
+            <Card className="mt-4 bg-light qna-admin-reply">
               <Card.Body>
-                <strong>📌 관리자 답변:</strong>
+                <strong>M·Bottle</strong>
                 <div style={{ whiteSpace: "pre-line" }}>{post.reply}</div>
               </Card.Body>
             </Card>
@@ -160,7 +153,7 @@ function PostDetail() {
           <Row className="mt-4">
             <Col></Col>
             <Col className="text-end">
-              <Button variant="secondary" onClick={() => navigate("/board")}>
+              <Button variant="secondary" onClick={() => navigate("/qna")}>
                 목록보기
               </Button>
             </Col>
@@ -171,4 +164,4 @@ function PostDetail() {
   )
 }
 
-export default PostDetail
+export default QnaDetailPage

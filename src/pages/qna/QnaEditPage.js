@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react"
 import { useParams, useNavigate } from "react-router-dom"
 import { doc, getDoc, updateDoc } from "firebase/firestore"
-import { db } from "../firebase"
-import { useAuth } from "../context/AuthContext"
+import { db } from "../../firebase"
+import { useAuth } from "../../context/AuthContext"
 import { Container, Form, Button, Spinner } from "react-bootstrap"
 
-function Edit() {
+function QnaEditPage() {
   const { id } = useParams()
   const navigate = useNavigate()
   const { user, loading, isAdmin } = useAuth()
@@ -37,7 +37,7 @@ function Edit() {
     if (!loading && user) {
       fetchPost()
     }
-  }, [id, user, loading, navigate])
+  }, [id, user, loading, isAdmin, navigate])
 
   const handleSubmit = async (e) => {
     e.preventDefault()
@@ -96,4 +96,4 @@ function Edit() {
   )
 }
 
-export default Edit
+export default QnaEditPage

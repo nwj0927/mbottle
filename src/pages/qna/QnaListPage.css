@@ -1,0 +1,69 @@
+.board-container {
+  max-width: 100%;
+  padding-top: 15vh; /* 기본 네비게이터 높이+여유 */
+  font-family: "Segoe UI", sans-serif;
+}
+
+/* 화면 세로 높이 700px 이하일 때 padding-top 증가 */
+@media (max-height: 700px) {
+  .board-container {
+    padding-top: 18vh;
+  }
+}
+
+/* 화면 세로 높이 600px 이하일 때 padding-top 더 증가 */
+@media (max-height: 600px) {
+  .board-container {
+    padding-top: 20vh;
+  }
+}
+
+/* 기존 가로폭 반응형 유지 */
+@media (max-width: 768px) {
+  .board-container {
+    /* 패딩은 세로기준으로 우선 조절, 필요시 여기서 더 조정 가능 */
+  }
+
+  .board-table {
+    font-size: 14px;
+  }
+
+  .board-table thead th,
+  .board-table td {
+    padding: 8px;
+  }
+
+  .post-title {
+    font-size: 14px;
+  }
+
+  .write-button {
+    font-size: 14px;
+    padding: 4px 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .col-author,
+  .col-date {
+    display: none;
+  }
+
+  .col-title {
+    width: 100%;
+  }
+
+  .col-no {
+    width: 40px;
+  }
+
+  .write-button {
+    width: 100%;
+    padding: 6px;
+    font-size: 15px;
+  }
+
+  .write-button-row {
+    margin-top: 16px;
+  }
+}

@@ -1,5 +1,6 @@
-/* floating navigator 스타일 */
-.floating-navigator {
+/* CompanyPage.module.css */
+
+.floatingNavigator {
   position: fixed;
   bottom: 2rem;
   right: 2rem;
@@ -18,45 +19,54 @@
 
 /* 모바일 대응 */
 @media (max-width: 768px) {
-  .floating-navigator {
+  .floatingNavigator {
     bottom: 1.2rem;
     right: 1rem;
     width: 40vw;
     padding: 0.8rem;
     font-size: 0.9rem;
+    display: none;
   }
 }
 
 @media (max-width: 480px) {
-  .floating-navigator {
+  .floatingNavigator {
     width: 60vw;
     right: 0.5rem;
     bottom: 0.5rem;
     padding: 0.7rem;
     font-size: 0.85rem;
+    display: none;
   }
 }
 
-.floating-navigator .nav-link {
+.navLink {
   margin-top: 0.5rem;
   margin-bottom: 0.5rem;
   color: #000000;
+  cursor: pointer;
+  transition: color 0.3s ease;
+  text-decoration: none;
 }
 
-.floating-navigator .nav-link.active {
+.navLink:hover {
+  color: #3366ff;
+}
+
+.navLinkActive {
   font-weight: bold;
-  color: #000000;
+  color: #3366ff;
 }
 
-/* 각 섹션의 스크롤 마진 보정 (고정 헤더 높이 10vh) */
-#profile,
-#history,
-#philosophy {
+/* 각 섹션 스크롤 마진 보정 */
+:global(#profile),
+:global(#history),
+:global(#philosophy) {
   scroll-margin-top: 10vh;
 }
 
-/* App-section 기본 padding 보정 (헤더 높이만큼 위 여백 확보) */
-.App-section {
+/* 섹션 기본 패딩 */
+.section {
   padding-top: 10vh;
   padding-bottom: 5vh;
   position: relative;

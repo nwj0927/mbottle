@@ -1,23 +1,34 @@
 import { useRef, useEffect, useState } from "react"
-import { useLocation } from "react-router-dom"
 import CompanyProfile from "./CompanyProfile"
 import CompanyHistory from "./CompanyHistory"
 import CompanyPhilosophy from "./CompanyPhilosophy"
 import { Nav } from "react-bootstrap"
-import "./Company.css"
+import styles from "./CompanyPage.module.css"
 
 const FloatingNavigator = ({ activeSection }) => {
   return (
-    <Nav className="flex-column floating-navigator">
-      <Nav.Link href="/company#profile" active={activeSection === "profile"}>
+    <Nav className={`${styles.floatingNavigator}`}>
+      <Nav.Link
+        href="/company#profile"
+        className={`${styles.navLink} ${
+          activeSection === "profile" ? styles.navLinkActive : ""
+        }`}
+      >
         회사 개요
       </Nav.Link>
-      <Nav.Link href="/company#history" active={activeSection === "history"}>
+      <Nav.Link
+        href="/company#history"
+        className={`${styles.navLink} ${
+          activeSection === "history" ? styles.navLinkActive : ""
+        }`}
+      >
         회사 연혁
       </Nav.Link>
       <Nav.Link
         href="/company#philosophy"
-        active={activeSection === "philosophy"}
+        className={`${styles.navLink} ${
+          activeSection === "philosophy" ? styles.navLinkActive : ""
+        }`}
       >
         경영 이념
       </Nav.Link>
@@ -29,27 +40,7 @@ const CompanyPage = () => {
   const profileRef = useRef(null)
   const historyRef = useRef(null)
   const philosophyRef = useRef(null)
-  const location = useLocation()
   const [activeSection, setActiveSection] = useState("")
-
-  useEffect(() => {
-    const hash = location.hash.replace("#", "")
-    const refsMap = {
-      profile: profileRef,
-      history: historyRef,
-      philosophy: philosophyRef,
-    }
-    const targetRef = refsMap[hash]
-
-    if (targetRef && targetRef.current) {
-      const headerHeight = window.innerHeight * 0.1 // 헤더 높이 10vh 가정
-      const elementTop =
-        targetRef.current.getBoundingClientRect().top + window.pageYOffset
-      const scrollToPosition = elementTop - headerHeight
-
-      window.scrollTo({ top: scrollToPosition, behavior: "smooth" })
-    }
-  }, [location])
 
   useEffect(() => {
     const handleScroll = () => {
@@ -74,7 +65,7 @@ const CompanyPage = () => {
   }, [])
 
   return (
-    <section className="App-section">
+    <section className={styles.section}>
       <FloatingNavigator activeSection={activeSection} />
 
       <div ref={profileRef} id="profile">

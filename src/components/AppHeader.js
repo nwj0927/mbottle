@@ -50,7 +50,7 @@ function NavScrollExample({ user, onLogin, onLogout }) {
             <Nav.Link className="Nav-Menu" href="/#action2">
               PRODUCT
             </Nav.Link>
-            <Nav.Link className="Nav-Menu" href="/board">
+            <Nav.Link className="Nav-Menu" href="/qna">
               Q&A
             </Nav.Link>
             <Nav.Link className="Nav-Menu" href="/#" disabled>

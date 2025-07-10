@@ -6,6 +6,10 @@ import AutoAwesomeIcon from "@mui/icons-material/AutoAwesome"
 import HandshakeIcon from "@mui/icons-material/Handshake"
 import EngineeringIcon from "@mui/icons-material/Engineering"
 import RecyclingIcon from "@mui/icons-material/Recycling"
+
+// CSS 모듈 임포트
+import styles from "./CompanyPhilosophy.module.css"
+
 const coreValues = [
   {
     title: "정밀함",
@@ -36,8 +40,8 @@ const coreValues = [
 
 const CompanyPhilosophy = () => {
   return (
-    <Container className="py-5">
-      <h2 className="text-center mb-5 fw-bold">경영이념</h2>
+    <Container className={styles.container}>
+      <h2 className={`${styles.title} text-center mb-5 fw-bold`}>경영이념</h2>
 
       {/* Mission & Vision */}
       <Row className="mb-4 justify-content-center">
@@ -48,7 +52,7 @@ const CompanyPhilosophy = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <Card className="mb-3 shadow-sm border-0 bg-light">
+            <Card className={`${styles.card} mb-3 shadow-sm border-0 bg-light`}>
               <Card.Body>
                 <h4 className="text-primary fw-bold">MISSION</h4>
                 <p className="mb-0">
@@ -67,7 +71,7 @@ const CompanyPhilosophy = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.1 }}
           >
-            <Card className="mb-3 shadow-sm border-0 bg-light">
+            <Card className={`${styles.card} mb-3 shadow-sm border-0 bg-light`}>
               <Card.Body>
                 <h4 className="text-success fw-bold">VISION</h4>
                 <p className="mb-0">
@@ -84,33 +88,33 @@ const CompanyPhilosophy = () => {
       <h5 className="text-center fw-semibold mt-5 mb-3 text-secondary">
         핵심 가치 (Core Values)
       </h5>
-      <Row className="justify-content-center">
+      <div className={styles.coreValuesGrid}>
         {coreValues.map((value, idx) => (
-          <Col key={idx} xs={12} md={6} lg={4} className="mb-3">
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: idx * 0.1 }}
-            >
-              <Card className="shadow-sm border-0 h-100">
-                <Card.Body className="d-flex flex-column align-items-start">
-                  <div
-                    style={{
-                      fontSize: "2.5rem",
-                      marginBottom: "0.5rem",
-                    }}
-                  >
-                    {value.icon}
-                  </div>
-                  <h5 className="fw-bold text-dark">{value.title}</h5>
-                  <p className="text-muted mb-0">{value.description}</p>
-                </Card.Body>
-              </Card>
-            </motion.div>
-          </Col>
+          <motion.div
+            key={idx}
+            className={styles.coreValueItem}
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: idx * 0.1 }}
+          >
+            <Card className="shadow-sm border-0 h-100">
+              <Card.Body className="d-flex flex-column align-items-center">
+                <div
+                  style={{
+                    fontSize: "2.5rem",
+                    marginBottom: "0.5rem",
+                  }}
+                >
+                  {value.icon}
+                </div>
+                <h5 className="fw-bold text-dark">{value.title}</h5>
+                <p className="text-muted mb-0">{value.description}</p>
+              </Card.Body>
+            </Card>
+          </motion.div>
         ))}
-      </Row>
+      </div>
     </Container>
   )
 }

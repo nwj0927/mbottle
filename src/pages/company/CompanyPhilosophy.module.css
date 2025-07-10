@@ -1,0 +1,79 @@
+.container {
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+  max-width: 1140px;
+  margin: 0 auto;
+}
+
+.title {
+  font-size: 2.75rem;
+  font-weight: 700;
+  margin-bottom: 3rem;
+  color: #222;
+}
+
+/* 카드 공통 스타일 */
+.card {
+  border-radius: 1rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: default;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* 아이콘 래퍼 */
+.iconWrapper {
+  font-size: 3rem;
+  margin-bottom: 0.75rem;
+  color: var(--bs-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 반응형: Mission & Vision 영역 간격 조절 */
+@media (max-width: 768px) {
+  .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .title {
+    font-size: 2rem;
+  }
+
+  .card {
+    border-radius: 1rem;
+    cursor: default;
+    text-align: center;
+  }
+
+  .iconWrapper {
+    font-size: 2.5rem;
+  }
+}
+
+/* Core Values 그리드 스타일 */
+.coreValuesGrid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  padding: 0 1rem;
+  justify-content: center;
+}
+
+/* Core Values 각 아이템 flex 설정 */
+.coreValueItem {
+  flex: 1 1 280px; /* 최소 280px, 필요하면 확장 */
+  max-width: 320px; /* 최대 크기 제한 */
+}
+
+@media (max-width: 768px) {
+  .coreValueItem {
+    flex-basis: 100%; /* 모바일에선 한 줄에 하나씩 쌓임 */
+    max-width: 100%;
+  }
+}

@@ -1,5 +1,5 @@
 import React from "react"
-import { Container, Row, Col, Card, Table } from "react-bootstrap"
+import { Container, Card } from "react-bootstrap"
 import { motion } from "framer-motion"
 import {
   Business,
@@ -10,7 +10,8 @@ import {
   Inventory,
   Visibility,
 } from "@mui/icons-material"
-import "./CompanyProfile.css"
+import styles from "./CompanyProfile.module.css"
+
 const companyInfo = [
   {
     label: "회사명",
@@ -43,9 +44,9 @@ const companyInfo = [
 
 const CompanyProfile = () => {
   return (
-    <Container className="py-5">
+    <Container className={styles.container}>
       <motion.h2
-        className="text-center mb-5 fw-bold display-5"
+        className={`${styles.title} fw-bold`}
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
@@ -53,39 +54,23 @@ const CompanyProfile = () => {
       >
         회사 개요
       </motion.h2>
-      <Row className="justify-content-center">
-        <Col lg={10}>
+
+      <Card className={styles.card}>
+        {companyInfo.map((item, idx) => (
           <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ duration: 0.6 }}
+            key={idx}
+            className={styles.infoRow}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
+            transition={{ duration: 0.4, delay: idx * 0.1 }}
           >
-            <Card className="shadow-sm border-0 rounded-4 bg-white">
-              <Table responsive className="mb-0">
-                <tbody>
-                  {companyInfo.map((item, index) => (
-                    <tr key={index}>
-                      <th
-                        className="align-middle bg-light text-dark fw-semibold"
-                        style={{ width: "30%" }}
-                      >
-                        <div className="d-flex align-items-center gap-2">
-                          <span style={{ opacity: 0.5 }}>{item.icon}</span>
-                          {item.label}
-                        </div>
-                      </th>
-                      <td className="align-middle text-muted fs-6">
-                        {item.value}
-                      </td>
-                    </tr>
-                  ))}
-                </tbody>
-              </Table>
-            </Card>
+            <div className={styles.iconWrapper}>{item.icon}</div>
+            <div className={styles.label}>{item.label}</div>
+            <div className={styles.value}>{item.value}</div>
           </motion.div>
-        </Col>
-      </Row>
+        ))}
+      </Card>
     </Container>
   )
 }

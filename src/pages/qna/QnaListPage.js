@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
 import { collection, getDocs } from "firebase/firestore"
-import { db } from "../firebase"
+import { db } from "../../firebase"
 import { Container, Table, Button, Row, Col } from "react-bootstrap"
 import LockIcon from "@mui/icons-material/Lock"
-import { useAuth } from "../context/AuthContext"
-import "./Board.css" // ✅ 스타일 분리
+import { useAuth } from "../../context/AuthContext"
+import "./QnaListPage.css" // ✅ 스타일 분리
 
-function Board() {
+function QnaListPage() {
   const [posts, setPosts] = useState([])
   const navigate = useNavigate()
   const { user, isAdmin } = useAuth()
@@ -42,7 +42,7 @@ function Board() {
     const isAuthor = user?.uid === post.uid
 
     if (isAdmin || isAuthor) {
-      navigate(`/post/${post.id}`)
+      navigate(`/qna/post/${post.id}`)
     } else {
       alert("해당 글은 작성자만 열람할 수 있습니다.")
     }
@@ -89,7 +89,7 @@ function Board() {
             <Button
               variant="primary"
               className="write-button"
-              onClick={() => navigate("/write")}
+              onClick={() => navigate("write")}
             >
               ✍️ 글쓰기
             </Button>
@@ -100,4 +100,4 @@ function Board() {
   )
 }
 
-export default Board
+export default QnaListPage

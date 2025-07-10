@@ -11,7 +11,7 @@ import {
   TipsAndUpdates,
 } from "@mui/icons-material"
 
-import "./CompanyHistory.css" // 선택: 스타일 추가 가능
+import styles from "./CompanyHistory.module.css"
 
 const companyHistory = [
   {
@@ -63,8 +63,8 @@ const companyHistory = [
 
 const CompanyHistory = () => {
   return (
-    <Container fluid className="py-5 bg-light">
-      <h2 className="text-center fw-bold mb-5 display-5">회사 연혁</h2>
+    <Container fluid className={styles.container}>
+      <h2 className={styles.title}>회사 연혁</h2>
       <Row className="justify-content-center">
         <Col lg={10}>
           {companyHistory.map((item, index) => (
@@ -74,15 +74,15 @@ const CompanyHistory = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.05 }}
-              className="mb-4"
+              className={styles.motionDiv}
             >
-              <Card className="shadow-sm border-0 bg-white">
-                <Card.Body className="d-flex flex-column flex-md-row align-items-start gap-3 p-4">
-                  <div className="d-flex align-items-center gap-3">
-                    <div className="fs-3">{item.icon}</div>
-                    <div className="text-primary fw-bold fs-4">{item.year}</div>
+              <Card className={styles.card}>
+                <Card.Body className={styles.cardBody}>
+                  <div className={styles.iconYearGroup}>
+                    <div className={styles.icon}>{item.icon}</div>
+                    <div className={styles.year}>{item.year}</div>
                   </div>
-                  <div className="fs-5 text-muted">{item.description}</div>
+                  <div className={styles.description}>{item.description}</div>
                 </Card.Body>
               </Card>
             </motion.div>

@@ -1,0 +1,24 @@
+.homepage-carousel-section {
+  padding-top: 15vh; /* 기본: 위 7vh, 좌우 2rem, 아래 2rem */
+  background-color: #fff;
+}
+
+@media (max-width: 768px) {
+  .homepage-carousel-section {
+    padding-top: 18vh; /* 태블릿 이하에서 위쪽 여유 늘리기 */
+  }
+}
+
+@media (max-width: 480px) {
+  .homepage-carousel-section {
+    padding-top: 20vh; /* 모바일에서 더 여유 주기 */
+  }
+}
+
+.homepage-intro-section {
+  /* 추가 스타일 필요하면 여기에 */
+}
+
+.homepage-products-section {
+  /* 추가 스타일 필요하면 여기에 */
+}

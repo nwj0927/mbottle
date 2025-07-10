@@ -1,0 +1,42 @@
+.product-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: none;
+  background-color: #f0f0f0;
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+}
+
+.product-card .card-img-top {
+  filter: grayscale(100%);
+  object-fit: cover;
+  height: 200px;
+}
+
+.product-card .card-title {
+  font-weight: 600;
+  color: #111;
+}
+
+.product-card .card-text {
+  color: #555;
+}
+
+.btn-outline-primary {
+  border-color: #444;
+  color: #444;
+}
+
+.btn-outline-primary:hover {
+  background-color: #444;
+  color: #fff;
+}
+
+/* 반응형 대응 */
+@media (max-width: 768px) {
+  .product-card .card-img-top {
+    height: 160px;
+  }
+}

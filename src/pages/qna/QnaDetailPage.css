@@ -1,0 +1,85 @@
+/* 기존 유지 */
+.qna-container {
+  padding-top: 15vh;
+  max-width: 100%;
+}
+
+@media (max-width: 768px) {
+  .qna-container {
+    padding-top: 18vh;
+  }
+}
+
+@media (max-width: 480px) {
+  .qna-container {
+    padding-top: 20vh;
+  }
+}
+
+.qna-header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  padding-left: 0; /* ✅ 왼쪽 정렬 */
+  padding-right: 0;
+}
+
+.qna-title {
+  font-weight: bold;
+  font-size: 1.4rem;
+  flex: 1;
+  word-break: break-word;
+  text-align: left; /* ✅ 왼쪽 정렬 */
+}
+
+.qna-icons {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.qna-meta {
+  display: flex;
+  justify-content: space-between;
+  color: gray;
+  font-size: 0.9rem;
+  margin-top: 0.5rem;
+  flex-wrap: wrap;
+  text-align: left; /* ✅ 전체 왼쪽 정렬 기본값 */
+}
+
+.qna-content {
+  white-space: pre-line;
+  margin-top: 20px;
+  text-align: left;
+}
+.qna-admin-reply {
+  white-space: pre-line;
+  margin-top: 20px;
+  text-align: left;
+}
+
+.qna-meta div {
+  flex: 1;
+}
+/* 모바일 대응 */
+@media (max-width: 576px) {
+  .qna-header-row {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .qna-title {
+    font-size: 1.2rem;
+    width: 100%;
+  }
+
+  .qna-meta {
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  .qna-meta div {
+    text-align: left !important;
+  }
+}
