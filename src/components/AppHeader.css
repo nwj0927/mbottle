@@ -35,3 +35,19 @@
   width: 100%;
   /* background-color: rgb(255, 255, 255); */
 }
+.Login-Area {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-left: 1rem;
+}
+
+/* 모바일에서 로그인 영역 가운데 정렬 */
+@media (max-width: 1024px) {
+  .Login-Area {
+    justify-content: center;
+    width: 100%;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+  }
+}

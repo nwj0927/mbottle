@@ -6,6 +6,10 @@ import QnaDetailPage from "./qna/QnaDetailPage"
 import CompanyPage from "./company/CompanyPage"
 import History from "./company/CompanyHistory"
 import Profile from "./company/CompanyProfile"
+import ContactMap from "./contact/ContactMap"
+import ContactForm from "./contact/ContactForm"
+import ContactPage from "./contact/ContactPage"
+import ContactInfo from "./contact/ContactInfo"
 
 export {
   HomePage,
@@ -16,4 +20,8 @@ export {
   QnaDetailPage,
   History,
   Profile,
+  ContactMap,
+  ContactForm,
+  ContactPage,
+  ContactInfo,
 }

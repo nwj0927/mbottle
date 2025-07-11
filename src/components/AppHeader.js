@@ -1,6 +1,5 @@
 import Button from "react-bootstrap/Button"
 import Container from "react-bootstrap/Container"
-// import Form from "react-bootstrap/Form"
 import Nav from "react-bootstrap/Nav"
 import Navbar from "react-bootstrap/Navbar"
 import NavDropdown from "react-bootstrap/NavDropdown"
@@ -23,7 +22,7 @@ function NavScrollExample({ user, onLogin, onLogout }) {
             style={{ maxHeight: "80vh" }}
             navbarScroll={false}
           >
-            <NavDropdown title="COMPANY" className="Nav-Dropdown">
+            <NavDropdown title="ABOUT" className="Nav-Dropdown">
               <NavDropdown.Item href="/company#profile">
                 회사개요
               </NavDropdown.Item>
@@ -33,12 +32,12 @@ function NavScrollExample({ user, onLogin, onLogout }) {
               <NavDropdown.Item href="/company#philosophy">
                 경영이념
               </NavDropdown.Item>
-              <NavDropdown.Item href="/company#patents">
+              {/* <NavDropdown.Item href="/company#patents">
                 특허 및 인증
-              </NavDropdown.Item>
+              </NavDropdown.Item> */}
             </NavDropdown>
 
-            <NavDropdown title="PRODUCT" className="Nav-Dropdown">
+            <NavDropdown title="PRODUCTS" className="Nav-Dropdown">
               <NavDropdown.Item href="action3">Series</NavDropdown.Item>
               <NavDropdown.Item href="action4">Section</NavDropdown.Item>
               <NavDropdown.Divider />
@@ -47,47 +46,36 @@ function NavScrollExample({ user, onLogin, onLogout }) {
               </NavDropdown.Item>
             </NavDropdown>
 
-            <Nav.Link className="Nav-Menu" href="/#action2">
-              PRODUCT
-            </Nav.Link>
             <Nav.Link className="Nav-Menu" href="/qna">
-              Q&A
+              SUPPORT
             </Nav.Link>
-            <Nav.Link className="Nav-Menu" href="/#" disabled>
-              Link
+            <Nav.Link className="Nav-Menu" href="/contact">
+              CONTACT
             </Nav.Link>
           </Nav>
-          {/* 검색 영역 */}
-          {/* <Form className="d-flex me-3">
-            <Form.Control
-              type="search"
-              placeholder="Search"
-              className="me-2"
-              aria-label="Search"
-            />
-            <Button variant="outline-success">Search</Button>
-          </Form> */}
 
           {/* 로그인 영역 */}
-          {user ? (
-            <div className="d-flex align-items-center">
-              <PersonIcon sx={{ fontSize: "30px" }} color="action" />
-              <span className=" fs-4">{user.displayName}</span>
-              <Button variant="outline-white" onClick={onLogout}>
-                <LogoutIcon sx={{ fontSize: "30px" }} color="action" />
+          <div className="Login-Area">
+            {user ? (
+              <>
+                <PersonIcon sx={{ fontSize: "4vh" }} color="action" />
+                <span className=".Nav-Menu">{user.displayName}</span>
+                <Button variant="outline-white" onClick={onLogout}>
+                  <LogoutIcon sx={{ fontSize: "4vh" }} color="action" />
+                </Button>
+              </>
+            ) : (
+              <Button
+                variant="white"
+                onClick={() => {
+                  console.log("로그인 버튼 클릭됨")
+                  onLogin()
+                }}
+              >
+                <LoginIcon sx={{ fontSize: "4vh" }} color="action" />
               </Button>
-            </div>
-          ) : (
-            <Button
-              variant="white"
-              onClick={() => {
-                console.log("로그인 버튼 클릭됨")
-                onLogin()
-              }}
-            >
-              <LoginIcon sx={{ fontSize: "30px" }} color="action" />
-            </Button>
-          )}
+            )}
+          </div>
         </Navbar.Collapse>
       </Container>
     </Navbar>

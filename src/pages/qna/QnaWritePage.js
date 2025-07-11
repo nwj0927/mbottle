@@ -4,6 +4,7 @@ import { collection, addDoc } from "firebase/firestore"
 import { db } from "../../firebase"
 import { useAuth } from "../../context/AuthContext"
 import { Container, Form, Button } from "react-bootstrap"
+import "./QnaWritePage.css" // ✅ CSS 파일 import
 
 function QnaWritePage() {
   const { user, loading } = useAuth()
@@ -36,8 +37,8 @@ function QnaWritePage() {
   if (loading) return <div>로딩중...</div>
 
   return (
-    <Container style={{ maxWidth: "100%" }}>
-      <h3 className="mb-4">✍️ 글쓰기</h3>
+    <Container className="qna-write-container">
+      <h3 className="qna-write-title">✍️ 글쓰기</h3>
       <Form onSubmit={handleSubmit}>
         <Form.Group className="mb-3">
           <Form.Control
@@ -54,13 +55,14 @@ function QnaWritePage() {
             as="textarea"
             placeholder="내용을 입력하세요"
             rows={6}
+            className="qna-write-textarea"
             value={content}
             onChange={(e) => setContent(e.target.value)}
             required
           />
         </Form.Group>
 
-        <div className="text-end">
+        <div className="qna-write-button-wrapper">
           <Button variant="success" type="submit">
             등록하기
           </Button>

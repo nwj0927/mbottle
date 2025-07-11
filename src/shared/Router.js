@@ -107,6 +107,14 @@ const Router = () => {
               </Layout>
             }
           />
+          <Route
+            path="/contact"
+            element={
+              <Layout>
+                <pages.ContactPage />
+              </Layout>
+            }
+          />
         </Routes>
       </Wrapper>
 

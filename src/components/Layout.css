@@ -4,20 +4,24 @@
   /* padding: 50px; */
   max-width: 100%;
   margin: 0 auto;
+  padding-top: 15vh; /* 기본 네비게이터 높이+여유 */
+  padding-bottom: 5vh;
 }
 
 /* 화면이 992px 이하일 때 */
 @media (max-width: 992px) {
   .App-section {
-    padding: 15px;
     max-width: 90%;
+    padding-top: 15vh; /* 기본 네비게이터 높이+여유 */
+    padding-bottom: 5vh;
   }
 }
 
 /* 화면이 576px 이하일 때 */
 @media (max-width: 576px) {
   .App-section {
-    padding: 10px;
     max-width: 100%;
+    padding-top: 15vh; /* 기본 네비게이터 높이+여유 */
+    padding-bottom: 5vh;
   }
 }

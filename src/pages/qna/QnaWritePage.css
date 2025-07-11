@@ -1,0 +1,15 @@
+.qna-write-container {
+  max-width: 100%;
+}
+
+.qna-write-title {
+  margin-bottom: 1rem; /* mb-4 */
+}
+
+.qna-write-textarea {
+  height: auto;
+}
+
+.qna-write-button-wrapper {
+  text-align: end;
+}

@@ -3,10 +3,10 @@ import { useParams, useNavigate } from "react-router-dom"
 import { doc, getDoc, deleteDoc, updateDoc } from "firebase/firestore"
 import { db } from "../../firebase"
 import { useAuth } from "../../context/AuthContext"
-import { Container, Card, Button, Form, Image, Row, Col } from "react-bootstrap"
+import { Container, Card, Button, Form, Image } from "react-bootstrap"
 import DeleteIcon from "@mui/icons-material/Delete"
 import ModeEditIcon from "@mui/icons-material/ModeEdit"
-
+import ArrowBackIcon from "@mui/icons-material/TableRows"
 import "./QnaDetailPage.css"
 
 function QnaDetailPage() {
@@ -61,9 +61,17 @@ function QnaDetailPage() {
     <Container className="qna-container">
       <Card>
         <Card.Body>
-          {/* 제목 + 아이콘 */}
-          <div className="qna-header-row mb-2">
-            <div className="qna-title">{post.title}</div>
+          {/* 제목 행 */}
+          <div className="qna-header-row d-flex align-items-center justify-content-between mb-2">
+            <div className="d-flex align-items-center">
+              {/* 목록 아이콘 (제목 왼쪽) */}
+              <ArrowBackIcon
+                className="qna-back-icon me-2"
+                style={{ cursor: "pointer" }}
+                onClick={() => navigate("/qna")}
+              />
+              <div className="qna-title">{post.title}</div>
+            </div>
             {(isAuthor || isAdmin) && (
               <div className="qna-icons">
                 <DeleteIcon
@@ -81,16 +89,16 @@ function QnaDetailPage() {
           </div>
 
           {/* 작성자 + 날짜 */}
-          <div className="qna-meta">
+          <div className="qna-meta d-flex justify-content-between mb-2">
             <div>작성자: {post.author}</div>
-            <div style={{ textAlign: "right" }}>
-              작성일: {new Date(post.createdAt).toLocaleDateString("ko-KR")}
+            <div className="text-end flex-grow-1">
+              {new Date(post.createdAt).toLocaleDateString("ko-KR")}
             </div>
           </div>
 
           {/* 이미지 */}
           {post.imageUrl && (
-            <div className="my-3">
+            <div className="my-3 text-center">
               <Image
                 src={post.imageUrl}
                 alt="첨부 이미지"
@@ -105,41 +113,51 @@ function QnaDetailPage() {
 
           {/* 관리자 답변 필드 */}
           {isAdmin && (
-            <>
-              <Form.Group className="mt-4">
+            <div className="reply-form-wrapper mt-4 position-relative">
+              <Form.Group>
                 <Form.Control
                   as="textarea"
                   rows={3}
                   value={reply}
                   onChange={(e) => setReply(e.target.value)}
                   readOnly={isReplySaved}
-                  className={isReplySaved ? "saved-reply" : ""}
+                  className={`reply-textarea ${
+                    isReplySaved ? "saved-reply" : ""
+                  }`}
                 />
+                <div className="reply-buttons-inside">
+                  {!isReplySaved ? (
+                    <Button
+                      size="sm"
+                      variant="primary"
+                      onClick={handleReplySave}
+                    >
+                      답변 저장
+                    </Button>
+                  ) : (
+                    <>
+                      <Button
+                        size="sm"
+                        variant="warning"
+                        onClick={() => setIsReplySaved(false)}
+                      >
+                        답변 수정하기
+                      </Button>
+                      <Button
+                        size="sm"
+                        variant="outline-danger"
+                        onClick={handleReplyDelete}
+                      >
+                        답변 삭제
+                      </Button>
+                    </>
+                  )}
+                </div>
               </Form.Group>
-              <div className="d-flex gap-2 mt-2">
-                {!isReplySaved && (
-                  <Button variant="primary" onClick={handleReplySave}>
-                    답변 저장
-                  </Button>
-                )}
-                {isReplySaved && (
-                  <Button
-                    variant="warning"
-                    onClick={() => setIsReplySaved(false)}
-                  >
-                    답변 수정하기
-                  </Button>
-                )}
-                {reply && (
-                  <Button variant="outline-danger" onClick={handleReplyDelete}>
-                    답변 삭제
-                  </Button>
-                )}
-              </div>
-            </>
+            </div>
           )}
 
-          {/* 일반 사용자용 관리자 답변 보기 */}
+          {/* 사용자용 관리자 답변 보기 */}
           {post.reply && !isAdmin && (
             <Card className="mt-4 bg-light qna-admin-reply">
               <Card.Body>
@@ -148,16 +166,6 @@ function QnaDetailPage() {
               </Card.Body>
             </Card>
           )}
-
-          {/* 목록 보기 버튼 */}
-          <Row className="mt-4">
-            <Col></Col>
-            <Col className="text-end">
-              <Button variant="secondary" onClick={() => navigate("/qna")}>
-                목록보기
-              </Button>
-            </Col>
-          </Row>
         </Card.Body>
       </Card>
     </Container>
