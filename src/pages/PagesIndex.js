@@ -10,6 +10,8 @@ import ContactMap from "./contact/ContactMap"
 import ContactForm from "./contact/ContactForm"
 import ContactPage from "./contact/ContactPage"
 import ContactInfo from "./contact/ContactInfo"
+import ProductListPage from "./product/ProductListPage"
+import ProductWritePage from "./product/ProductWritePage"
 
 export {
   HomePage,
@@ -24,4 +26,6 @@ export {
   ContactForm,
   ContactPage,
   ContactInfo,
+  ProductListPage,
+  ProductWritePage,
 }

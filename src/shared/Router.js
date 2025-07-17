@@ -68,6 +68,22 @@ const Router = () => {
             }
           />
           <Route
+            path="/product"
+            element={
+              <Layout>
+                <pages.ProductListPage />
+              </Layout>
+            }
+          />
+          <Route
+            path="/product/upload"
+            element={
+              <Layout>
+                <pages.ProductWritePage user={user} />
+              </Layout>
+            }
+          />
+          <Route
             path="/qna"
             element={
               <Layout>
