@@ -38,7 +38,12 @@ function QnaWritePage() {
 
   return (
     <Container className="qna-write-container">
-      <h3 className="qna-write-title">✍️ 글쓰기</h3>
+      {/* <h3 className="qna-write-title">✍️ 글쓰기</h3> */}
+      {/**
+       *
+       * 해당부분 CarouselSection.js 들어가는 곳
+       *
+       */}
       <Form onSubmit={handleSubmit}>
         <Form.Group className="mb-3">
           <Form.Control

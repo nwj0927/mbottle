@@ -132,23 +132,23 @@ function QnaDetailPage() {
                       variant="primary"
                       onClick={handleReplySave}
                     >
-                      답변 저장
+                      저장
                     </Button>
                   ) : (
                     <>
                       <Button
                         size="sm"
-                        variant="warning"
+                        variant="dark"
                         onClick={() => setIsReplySaved(false)}
                       >
-                        답변 수정하기
+                        수정하기
                       </Button>
                       <Button
                         size="sm"
-                        variant="outline-danger"
+                        variant="danger"
                         onClick={handleReplyDelete}
                       >
-                        답변 삭제
+                        삭제
                       </Button>
                     </>
                   )}

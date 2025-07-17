@@ -67,8 +67,8 @@
 
 /* 섹션 기본 패딩 */
 .section {
-  padding-top: 10vh;
-  padding-bottom: 5vh;
+  /* padding-top: 10vh;
+  padding-bottom: 5vh; */
   position: relative;
   font-size: small;
   z-index: 1;
