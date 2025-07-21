@@ -1,4 +1,5 @@
 import { Route, Routes, useLocation } from "react-router-dom"
+import { AnimatePresence } from "framer-motion"
 import React, { useEffect, useState } from "react"
 import * as pages from "../pages/PagesIndex"
 import Header from "../components/AppHeader"
@@ -57,13 +58,15 @@ const Router = () => {
         <Header user={user} onLogin={handleLogin} onLogout={handleLogout} />
       </header>
 
-      <Wrapper>
-        <Routes>
+      <AnimatePresence exitBeforeEnter>
+        <Routes location={location} key={location.pathname}>
           <Route
             path="/"
             element={
               <Layout>
-                <pages.HomePage />
+                <Wrapper>
+                  <pages.HomePage />
+                </Wrapper>
               </Layout>
             }
           />
@@ -71,7 +74,9 @@ const Router = () => {
             path="/product"
             element={
               <Layout>
-                <pages.ProductListPage />
+                <Wrapper>
+                  <pages.ProductListPage />
+                </Wrapper>
               </Layout>
             }
           />
@@ -79,7 +84,9 @@ const Router = () => {
             path="/product/upload"
             element={
               <Layout>
-                <pages.ProductWritePage user={user} />
+                <Wrapper>
+                  <pages.ProductWritePage user={user} />
+                </Wrapper>
               </Layout>
             }
           />
@@ -87,7 +94,9 @@ const Router = () => {
             path="/qna"
             element={
               <Layout>
-                <pages.QnaListPage />
+                <Wrapper>
+                  <pages.QnaListPage />
+                </Wrapper>
               </Layout>
             }
           />
@@ -95,7 +104,9 @@ const Router = () => {
             path="/qna/write"
             element={
               <Layout>
-                <pages.QnaWritePage user={user} />
+                <Wrapper>
+                  <pages.QnaWritePage user={user} />
+                </Wrapper>
               </Layout>
             }
           />
@@ -103,7 +114,9 @@ const Router = () => {
             path="/qna/edit/:id"
             element={
               <Layout>
-                <pages.QnaEditPage />
+                <Wrapper>
+                  <pages.QnaEditPage />
+                </Wrapper>
               </Layout>
             }
           />
@@ -111,7 +124,9 @@ const Router = () => {
             path="/qna/post/:id"
             element={
               <Layout>
-                <pages.QnaDetailPage />
+                <Wrapper>
+                  <pages.QnaDetailPage />
+                </Wrapper>
               </Layout>
             }
           />
@@ -119,7 +134,9 @@ const Router = () => {
             path="/company"
             element={
               <Layout>
-                <pages.CompanyPage />
+                <Wrapper>
+                  <pages.CompanyPage />
+                </Wrapper>
               </Layout>
             }
           />
@@ -127,12 +144,14 @@ const Router = () => {
             path="/contact"
             element={
               <Layout>
-                <pages.ContactPage />
+                <Wrapper>
+                  <pages.ContactPage />
+                </Wrapper>
               </Layout>
             }
           />
         </Routes>
-      </Wrapper>
+      </AnimatePresence>
 
       <ScrollToTopButton />
 

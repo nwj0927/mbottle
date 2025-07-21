@@ -7,6 +7,7 @@ import "./AppHeader.css"
 import LoginIcon from "@mui/icons-material/Login"
 import LogoutIcon from "@mui/icons-material/Logout"
 import PersonIcon from "@mui/icons-material/Person"
+import { Link } from "react-router-dom"
 
 function NavScrollExample({ user, onLogin, onLogout }) {
   return (
@@ -23,33 +24,34 @@ function NavScrollExample({ user, onLogin, onLogout }) {
             navbarScroll={false}
           >
             <NavDropdown title="ABOUT" className="Nav-Dropdown">
-              <NavDropdown.Item href="/company#profile">
+              <NavDropdown.Item as={Link} to="/company#profile">
                 회사개요
               </NavDropdown.Item>
-              <NavDropdown.Item href="/company#history">
+              <NavDropdown.Item as={Link} to="/company#history">
                 회사연혁
               </NavDropdown.Item>
-              <NavDropdown.Item href="/company#philosophy">
+              <NavDropdown.Item as={Link} to="/company#philosophy">
                 경영이념
               </NavDropdown.Item>
-              {/* <NavDropdown.Item href="/company#patents">
-                특허 및 인증
-              </NavDropdown.Item> */}
             </NavDropdown>
 
             <NavDropdown title="PRODUCTS" className="Nav-Dropdown">
-              <NavDropdown.Item href="/product">시리즈</NavDropdown.Item>
-              <NavDropdown.Item href="/series">섹션</NavDropdown.Item>
+              <NavDropdown.Item as={Link} to="/product">
+                시리즈
+              </NavDropdown.Item>
+              <NavDropdown.Item as={Link} to="/series">
+                섹션
+              </NavDropdown.Item>
               <NavDropdown.Divider />
-              <NavDropdown.Item href="/action5">
+              <NavDropdown.Item as={Link} to="/action5">
                 새로 추가할 메뉴
               </NavDropdown.Item>
             </NavDropdown>
 
-            <Nav.Link className="Nav-Menu" href="/qna">
+            <Nav.Link as={Link} to="/qna" className="Nav-Menu">
               SUPPORT
             </Nav.Link>
-            <Nav.Link className="Nav-Menu" href="/contact">
+            <Nav.Link as={Link} to="/contact" className="Nav-Menu">
               CONTACT
             </Nav.Link>
           </Nav>
