@@ -5,7 +5,7 @@ import { db } from "../../firebase"
 import { Container, Table, Button, Row, Col } from "react-bootstrap"
 import LockIcon from "@mui/icons-material/Lock"
 import { useAuth } from "../../context/AuthContext"
-import "./QnaListPage.css" // ✅ 스타일 분리
+import "./QnaListPage.css"
 
 function QnaListPage() {
   const [posts, setPosts] = useState([])
@@ -53,10 +53,10 @@ function QnaListPage() {
       <Table striped bordered hover className="board-table">
         <thead>
           <tr>
-            <th className="col-no">번호</th>
+            <th className="col-no hide-on-small">번호</th>
             <th className="col-title">제목</th>
-            <th className="col-author">작성자</th>
-            <th className="col-date">작성일</th>
+            <th className="col-author hide-on-small">작성자</th>
+            <th className="col-date hide-on-small">작성일</th>
           </tr>
         </thead>
         <tbody>
@@ -65,7 +65,10 @@ function QnaListPage() {
 
             return (
               <tr key={post.id}>
-                <td className="text-center">{posts.length - idx}</td>
+                <td className="text-center col-no hide-on-small">
+                  {posts.length - idx}
+                </td>
+
                 <td
                   className="post-title"
                   onClick={() => handleTitleClick(post)}
@@ -74,9 +77,19 @@ function QnaListPage() {
                     <LockIcon fontSize="small" className="lock-icon" />
                   )}
                   {post.title}
+
+                  {/* 해상도 작을 때만 제목 아래 작성자/날짜 표시 */}
+                  <div className="meta-info">
+                    {post.author} · {formatDate(post.createdAt)}
+                  </div>
                 </td>
-                <td className="text-center">{post.author}</td>
-                <td className="text-center">{formatDate(post.createdAt)}</td>
+
+                <td className="text-center col-author hide-on-small">
+                  {post.author}
+                </td>
+                <td className="text-center col-date hide-on-small">
+                  {formatDate(post.createdAt)}
+                </td>
               </tr>
             )
           })}

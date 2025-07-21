@@ -15,7 +15,14 @@ function ProductListPage() {
   const [activeTab, setActiveTab] = useState("전체")
   const { isAdmin } = useAuth()
   const navigate = useNavigate()
+  const fetchProducts = async () => {
+    const snapshot = await getDocs(collection(db, "products"))
+    const items = snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }))
+    setProducts(items)
 
+    const cats = ["전체", ...new Set(items.map((item) => item.category))]
+    setCategories(cats)
+  }
   useEffect(() => {
     async function fetchProducts() {
       const snapshot = await getDocs(collection(db, "products"))
@@ -64,6 +71,7 @@ function ProductListPage() {
           show={!!selectedProduct}
           handleClose={() => setSelectedProduct(null)}
           product={selectedProduct}
+          refreshProducts={fetchProducts} // 👈 여기!
         />
       )}
 

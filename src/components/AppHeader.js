@@ -38,10 +38,10 @@ function NavScrollExample({ user, onLogin, onLogout }) {
             </NavDropdown>
 
             <NavDropdown title="PRODUCTS" className="Nav-Dropdown">
-              <NavDropdown.Item href="product">시리즈</NavDropdown.Item>
-              <NavDropdown.Item href="series">섹션</NavDropdown.Item>
+              <NavDropdown.Item href="/product">시리즈</NavDropdown.Item>
+              <NavDropdown.Item href="/series">섹션</NavDropdown.Item>
               <NavDropdown.Divider />
-              <NavDropdown.Item href="action5">
+              <NavDropdown.Item href="/action5">
                 새로 추가할 메뉴
               </NavDropdown.Item>
             </NavDropdown>

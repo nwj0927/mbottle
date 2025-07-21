@@ -3,33 +3,69 @@
   font-family: "Segoe UI", sans-serif;
 }
 
-/* 화면 세로 높이 700px 이하일 때 padding-top 증가 */
-@media (max-height: 700px) {
-  .board-container {
-    padding-top: 18vh;
-  }
+/* 테이블 기본 설정 */
+.board-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 16px;
 }
 
-/* 화면 세로 높이 600px 이하일 때 padding-top 더 증가 */
-@media (max-height: 600px) {
-  .board-container {
-    padding-top: 20vh;
-  }
+.board-table thead th,
+.board-table tbody td {
+  padding: 10px;
 }
 
-/* 기존 가로폭 반응형 유지 */
+.col-no {
+  width: 60px;
+  text-align: center;
+}
+.col-title {
+  text-align: left;
+}
+.col-author,
+.col-date {
+  text-align: center;
+}
+
+/* 제목 셀 */
+/* 줄임표시 적용 */
+.post-title {
+  cursor: pointer;
+  text-align: left;
+  white-space: nowrap; /* 한 줄로 유지 */
+  overflow: hidden; /* 넘치는 텍스트 숨김 */
+  text-overflow: ellipsis; /* ... 표시 */
+  max-width: 100%; /* 최대 너비 제한 */
+  font-size: 16px;
+}
+
+/* 잠금 아이콘 */
+.lock-icon {
+  margin-right: 4px;
+}
+
+/* 제목 아래 작성자·작성일 (해상도 작을 때 보임) */
+.meta-info {
+  display: none;
+  font-size: 0.75rem;
+  color: #666;
+  margin-top: 4px;
+  white-space: normal; /* 줄바꿈 허용 */
+}
+
+/* 글쓰기 버튼 */
+.write-button {
+  font-size: 16px;
+  padding: 6px 16px;
+}
+.write-button-row {
+  margin-top: 20px;
+}
+
+/* 반응형 - 태블릿 이하 */
 @media (max-width: 768px) {
-  .board-container {
-    /* 패딩은 세로기준으로 우선 조절, 필요시 여기서 더 조정 가능 */
-  }
-
   .board-table {
     font-size: 14px;
-  }
-
-  .board-table thead th,
-  .board-table td {
-    padding: 8px;
   }
 
   .post-title {
@@ -42,18 +78,20 @@
   }
 }
 
-@media (max-width: 480px) {
-  .col-author,
-  .col-date {
-    display: none;
+/* 반응형 - 해상도 720px 이하 */
+@media (max-width: 720px) {
+  /* 오른쪽 작성자/날짜, 번호 열 숨김 */
+  .hide-on-small {
+    display: none !important;
   }
 
   .col-title {
     width: 100%;
   }
 
-  .col-no {
-    width: 40px;
+  /* 제목 아래 작성자/작성일 표시 */
+  .meta-info {
+    display: block;
   }
 
   .write-button {

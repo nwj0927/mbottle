@@ -5,7 +5,6 @@ import ChatBubbleIcon from "@mui/icons-material/ChatBubble" // 카카오톡 대�
 
 function AppFooter() {
   const currentYear = new Date().getFullYear()
-
   return (
     <div className="Footer">
       <div className="Footer-Menu-Left">

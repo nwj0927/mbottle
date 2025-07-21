@@ -8,15 +8,18 @@ function ContactMap() {
       window.kakao.maps.load(() => {
         const container = document.getElementById("map")
         const options = {
-          center: new window.kakao.maps.LatLng(37.092965, 126.821696),
-          level: 5,
+          center: new window.kakao.maps.LatLng(
+            37.13689161300047,
+            126.83849525519456
+          ),
+          level: 4,
         }
         const map = new window.kakao.maps.Map(container, options)
 
         // ✅ 마커 생성
         const markerPosition = new window.kakao.maps.LatLng(
-          37.092965,
-          126.821696
+          37.13689161300047,
+          126.83849525519456
         )
         const marker = new window.kakao.maps.Marker({
           position: markerPosition,
